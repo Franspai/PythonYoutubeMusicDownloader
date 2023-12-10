@@ -1,7 +1,7 @@
 import subprocess
-import os
+import sys
 
-download_directory = "./"
+download_directory = ""
 
 def read_artist_links():
     with open("artists.txt", "r") as file:
@@ -10,18 +10,12 @@ def read_artist_links():
 
 def download_songs(links):
     for link in links:
-        # Use yt-dlp to download songs based on the links
-        subprocess.call(["yt-dlp", "-o", f"{download_directory}%(title)s.%(ext)s", "-x", "--audio-format", "mp3", "--embed-metadata", link])
+        output_format = "{}/%(title)s.%(ext)s".format(download_directory)
+        subprocess.call(["yt-dlp", "-x", "--audio-format", "mp3", "--embed-metadata", link, "-o", output_format])
 
 def main():
     global download_directory
-    download_dir = input("Enter the download directory: ")
-
-    if os.path.isdir(download_dir):
-        if not download_dir.endswith("/"):
-            download_dir += "/"  # Ensure the directory path ends with a slash
-        download_directory = download_dir
-
+    download_directory = sys.argv[1] if len(sys.argv) > 1 else ""
     artist_links = read_artist_links()
     if artist_links:
         download_songs(artist_links)
@@ -30,3 +24,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
