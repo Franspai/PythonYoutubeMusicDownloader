@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-download_directory = "/media/root/KingstonSSD/Music"
+download_directory = "./"
 
 def read_artist_links():
     with open("artists.txt", "r") as file:
