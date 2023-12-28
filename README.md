@@ -1,7 +1,7 @@
 # PythonYoutubeMusicDownloader
 Simple scripts in Python to automate downloading music from Youtube Music using yt-dlp
 
-These script were made in order for me to automate downloading all albums of Artists I like from Youtube Music in order to stream them on my local Navidrome instance
+These scripts were made in order for me to automate downloading all albums of Artists I like from Youtube Music in order to stream them on my local Navidrome instance
 # Dependencies
 The only dependencies of these scripts are: python3 and yt-dlp - if on Windows yt-dlp MUST be added on PATH in order to work
 
